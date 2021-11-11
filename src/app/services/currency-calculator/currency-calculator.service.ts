@@ -10,7 +10,16 @@ export class CurrencyCalculatorService {
   constructor(private currencyStoreService: CurrencyStoreService) { }
 
   calculate(calculation: Calculation) {
-    const courseByCountries = this.currencyStoreService.getCourseByCountryCodes(calculation.calculateFrom.countryCode, calculation.calculateTo.countryCode);
-    calculation.result = calculation.amount * courseByCountries.course;
+
+    let courseFactor = 1;
+
+    const countryCodeFrom = calculation.calculateFrom.countryCode;
+    const countryCodeTo = calculation.calculateTo.countryCode;
+
+    if (countryCodeFrom !== countryCodeTo) {
+      courseFactor = this.currencyStoreService.getCourseByCountryCodes(countryCodeFrom, countryCodeTo).course;
+    }
+
+    calculation.result = calculation.amount * courseFactor;
   }
 }
