@@ -19,7 +19,6 @@ export class CurrencyCalculationComponent implements OnInit, OnDestroy {
   public result: number;
 
   constructor(private calculationService: CurrencyCalculatorService, private currencyStoreService: CurrencyStoreService) {
-
   }
 
   ngOnInit() {
@@ -29,8 +28,8 @@ export class CurrencyCalculationComponent implements OnInit, OnDestroy {
   calculate() {
     const currencyFrom = this.currencyStoreService.getCurrencyByCountryCode(this.selectedCurrencyFrom);
     const currencyTo = this.currencyStoreService.getCurrencyByCountryCode(this.selectedCurrencyTo);
+
     this.calculation = {amount: this.amount, calculateFrom: currencyFrom, calculateTo: currencyTo};
-    debugger;
     this.calculationService.calculate(this.calculation);
     this.result = this.calculation.result;
   }

@@ -1,4 +1,6 @@
+import { Course } from './course';
+
 export interface Currency {
     countryCode: string;
-    course: number;
+    courses: Course[];
 }

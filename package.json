@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start-en": "ng serve --prod",
+    "start-de": "ng serve --configuration=production-de",
+    "extract-i18n": "ng xi18n --i18nFormat=xmb"
   },
   "private": true,
   "dependencies": {

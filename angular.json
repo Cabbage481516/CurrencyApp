@@ -46,6 +46,34 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
+              "i18nLocale": "de",
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "production-de": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "i18nLocale": "de",
+              "i18nFile": "src/messages.de.xtb",
+              "i18nFormat": "xtb",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -67,6 +95,9 @@
           "configurations": {
             "production": {
               "browserTarget": "CurrencyApp:build:production"
+            },
+            "production-de": {
+              "browserTarget": "CurrencyApp:build:production-de"
             }
           }
         },

@@ -1,3 +1,4 @@
+import { CurrencyStoreService } from 'src/app/services/currency-store/currency-store.service';
 import { Calculation } from '../../models/calculation';
 import { Injectable } from '@angular/core';
 
@@ -6,9 +7,10 @@ import { Injectable } from '@angular/core';
 })
 export class CurrencyCalculatorService {
 
-  constructor() { }
+  constructor(private currencyStoreService: CurrencyStoreService) { }
 
   calculate(calculation: Calculation) {
-    calculation.result = calculation.amount * calculation.calculateTo.course;
+    const courseByCountries = this.currencyStoreService.getCourseByCountryCodes(calculation.calculateFrom.countryCode, calculation.calculateTo.countryCode);
+    calculation.result = calculation.amount * courseByCountries.course;
   }
 }
