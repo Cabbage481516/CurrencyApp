@@ -1,0 +1,48 @@
+<div>
+  <h1>Currency Calculator</h1>
+  
+  <div class ="ui divider"></div>
+
+  <!--<p-inputNumber (ngModel)="valueFrom" mode="number"></p-inputNumber>-->
+  <!--<p-dropdown [options]="currencies" optionLabel="name" optionValue="code"></p-dropdown>-->
+  
+  
+  <div class = "ui right labeled input">
+    <label for="fromCurrency" class="ui label">From: </label>
+    <select name="fromCurrencyList" class="ui selection dropdown" [(ngModel)] ="selectedCurrencyFrom">
+      <option *ngFor="let item of currencies" [value]="item.countryCode">
+        {{item.countryCode}}
+      </option>    
+    </select>
+  </div>
+  <div class ="ui divider"></div>
+  <div class = "ui right labeled input">
+    <label for="toCurrency" class="ui label">To: </label>
+    <select name="toCurrencyList" class="ui selection dropdown" [(ngModel)] ="selectedCurrencyTo">
+      <option *ngFor="let item of currencies" [value]="item.countryCode">
+        {{item.countryCode}}
+      </option>    
+    </select>
+  </div>
+
+  <div class ="ui divider"></div>
+
+  <div class="ui right labeled input">
+    <label for="amount" class="ui label">Amount: </label>
+    <input type="number" placeholder="Amount" id="amount" [(ngModel)]="amount">
+  </div>
+
+<div class ="ui divider"></div>
+
+<div>
+  <button class = "ui red button" (click)="calculate()">Calculate</button>
+</div>  
+
+<div class ="ui divider"></div>
+
+<div class="ui right labeled input">
+  <label for="result" class="ui label">Result</label>
+  <label class="ui label">{{ result }}</label>
+</div>
+
+</div>
